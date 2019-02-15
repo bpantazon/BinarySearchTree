@@ -17,6 +17,10 @@ namespace BinarySearchTree
             tree.Add(120);
             tree.Add(85);
             tree.Add(150);
+            tree.Add(130);
+            tree.Add(70);
+            tree.Add(95);
+            tree.Add(70);
         }
     }
 }
