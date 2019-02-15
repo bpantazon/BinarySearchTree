@@ -112,7 +112,7 @@ namespace BinarySearchTree
                 else if (temp.data == node.data)
                 {
                     wasFound = true;
-                    Console.WriteLine("Your value was found");
+                    Console.WriteLine($"Your value of {temp.data} was found");
                 }
                 
             }
