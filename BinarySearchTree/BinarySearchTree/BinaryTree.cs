@@ -8,26 +8,45 @@ namespace BinarySearchTree
 {
     class BinaryTree
     {
-        Node root = null;
+        Node start = null;
+        public BinaryTree()
+        {
 
+        }
         public void Add(int data)
         {
             Node node;
-            Node newNode = new Node(data);
-            if (root == null)
+            Node temp = new Node(data);
+            if (start == null)
             {
-                root = newNode;
-            }            
-            node = root;
-            while (node.link != null)
+                start = temp;
+                //node = root;
+            }
+            //else
+            //{
+            //    node = newNode;
+            //}
+            node = start;
+            if (node.link != null) //while
             {
+                //node.link = null;
                 node = node.link;
             }
-            node.link = newNode;
-
-            if (newNode.data > node.data)
+            //node.link = temp;
+            
+            if (temp.data > node.data)
             {
-                node.right = newNode;
+                //node.right.data = temp.data;
+                //node.right.link = temp;
+                node.right = temp;
+                node.right.link = node;
+            }
+            else if (temp.data < node.data)
+            {
+                //node.left.data = temp.data;
+                //node.left.link = temp;
+                node.left = temp;
+                node.left.link = node;
             }
         }
         

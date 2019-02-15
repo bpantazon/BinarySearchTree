@@ -13,6 +13,9 @@ namespace BinarySearchTree
             BinaryTree tree = new BinaryTree();
             tree.Add(100);
             tree.Add(110);
+            tree.Add(90);
+            tree.Add(120);
+            tree.Add(85);
         }
     }
 }
