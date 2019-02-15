@@ -21,26 +21,18 @@ namespace BinarySearchTree
             Node temp = new Node(data);
             if (start == null)
             {
-                start = temp;
-                //node = root;
-            }
-            //else
-            //{
-            //    node = start;
-            //}
+                start = temp;               
+            }         
             node = start;
             if (node.link != null) //while
-            {
-                //node.link = null;
+            {               
                 node = node.link;
             }
-            //node.link = temp;
-
             while (wasAdded == false)
             {
                 if (temp.data > node.data)
                 {
-                    //is right null? if null, right node = temp.data. If not null, check data with that value
+                    
                     if (node.right == null)
                     {
                         node.right = temp;
@@ -65,17 +57,65 @@ namespace BinarySearchTree
                     {
                         node = node.left;
                     }
-
                 }
                 else if (temp.data == node.data)
                 {
                     wasAdded = true;
+                }               
+            }           
+        }
+        
+        public void Search(int data)
+        {
+            bool wasFound = false;
+            Node node;
+            Node temp = new Node(data);
+            if (start == null)
+            {
+                start = temp;
+            }
+            node = start;
+            if (node.link != null) //while
+            {
+                node = node.link;
+            }
+            while (wasFound == false)
+            {
+                if (temp.data > node.data)
+                {
+
+                    if (node.right == null)
+                    {
+                        node.right = temp;
+                        //node.right.link = node;
+                        wasFound = true;
+                    }
+                    else if (node.right != null)
+                    {
+                        node = node.right;
+
+                    }
+                }
+                else if (temp.data < node.data)
+                {
+                    if (node.left == null)
+                    {
+                        node.left = temp;
+                        //node.left.link = node;
+                        wasFound = true;
+                    }
+                    else if (node.left != null)
+                    {
+                        node = node.left;
+                    }
+                }
+                else if (temp.data == node.data)
+                {
+                    wasFound = true;
+                    Console.WriteLine("Your value was found");
                 }
                 
             }
-            
-            
         }
-        
     }
 }
