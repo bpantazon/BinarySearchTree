@@ -9,12 +9,14 @@ namespace BinarySearchTree
     class BinaryTree
     {
         Node start = null;
+        
         public BinaryTree()
         {
 
         }
         public void Add(int data)
         {
+            bool wasAdded = false;
             Node node;
             Node temp = new Node(data);
             if (start == null)
@@ -24,7 +26,7 @@ namespace BinarySearchTree
             }
             //else
             //{
-            //    node = newNode;
+            //    node = start;
             //}
             node = start;
             if (node.link != null) //while
@@ -33,21 +35,46 @@ namespace BinarySearchTree
                 node = node.link;
             }
             //node.link = temp;
+
+            while (wasAdded == false)
+            {
+                if (temp.data > node.data)
+                {
+                    //is right null? if null, right node = temp.data. If not null, check data with that value
+                    if (node.right == null)
+                    {
+                        node.right = temp;
+                        node.right.link = node;
+                        wasAdded = true;
+                    }
+                    else if (node.right != null)
+                    {
+                        node = node.right;
+
+                    }
+                }
+                else if (temp.data < node.data)
+                {
+                    if (node.left == null)
+                    {
+                        node.left = temp;
+                        node.left.link = node;
+                        wasAdded = true;
+                    }
+                    else if (node.left != null)
+                    {
+                        node = node.left;
+                    }
+
+                }
+                else if (temp.data == node.data)
+                {
+                    wasAdded = true;
+                }
+                
+            }
             
-            if (temp.data > node.data)
-            {
-                //node.right.data = temp.data;
-                //node.right.link = temp;
-                node.right = temp;
-                node.right.link = node;
-            }
-            else if (temp.data < node.data)
-            {
-                //node.left.data = temp.data;
-                //node.left.link = temp;
-                node.left = temp;
-                node.left.link = node;
-            }
+            
         }
         
     }
